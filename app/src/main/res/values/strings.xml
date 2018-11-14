@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">test</string>
+    <string name="string1">Enter text to display in activity 2</string>
+</resources>
