@@ -18,3 +18,4 @@ class Main2Activity : AppCompatActivity() {
         text2.text = msg
     }
 }
+
