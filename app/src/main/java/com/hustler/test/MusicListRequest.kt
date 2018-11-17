@@ -14,7 +14,7 @@ import kotlin.coroutines.coroutineContext
 data class MusicList(val songs:ArrayList<Song>)
 data class Song(val artist:String,val title:String,val id:String,val duration:String,val path:String)
 class MusicListRequest {
-    fun execute (context : Context) : MusicList {
+    fun execute (context : Context) : List<Song> {
         val uriExternal = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI
 
         val projection = arrayOf(
@@ -51,7 +51,7 @@ class MusicListRequest {
                 }
             }
         cur.close()
-    val result = MusicList(songList)
+    val result = songList
     return result
     }
 }

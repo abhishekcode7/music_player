@@ -47,16 +47,13 @@ class MainActivity : AppCompatActivity() {
         }
 
         button3.setOnClickListener {
-           if(p==PackageManager.PERMISSION_GRANTED) {
+
                val display = MusicListRequest().execute(this)
 
-               val disp = display.songs
-               text3.text = disp.toString()
-           }
-            else
-           {
-               Toast.makeText(this,"Read permission not granted",Toast.LENGTH_SHORT).show()
-           }
+               //val disp = display.songs
+               //text3.text = disp.toString()
+
+
         }
         btnshare.setOnClickListener{
             val message : String = text1.text.toString()
@@ -66,6 +63,14 @@ class MainActivity : AppCompatActivity() {
             intent.type="text/plain"
             startActivity(Intent.createChooser(intent,"SEND TO :"))
         }
+
+        btnview.setOnClickListener{
+            val intent=Intent(this, Main3Activity::class.java)
+            startActivity(intent)
+        }
+
+
+
     }
 
 
