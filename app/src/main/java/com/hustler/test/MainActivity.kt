@@ -10,7 +10,11 @@ import android.os.Parcelable
 import android.provider.MediaStore
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
+import android.view.View
 import android.widget.Toast
+import com.google.android.gms.ads.AdListener
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.MobileAds
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.jar.Manifest
 
@@ -19,6 +23,26 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        MobileAds.initialize(this, "ca-app-pub-1788332764809455~5493699836")
+        val adRequest=AdRequest.Builder().build()
+        adView.loadAd(adRequest)
+        adView.visibility= View.GONE
+
+        adView.adListener = object : AdListener()
+        {
+            override fun onAdLoaded() {
+                adView.visibility=View.VISIBLE
+                super.onAdLoaded()
+            }
+        }
+
+
+        val k=ContextCompat.checkSelfPermission(this,android.Manifest.permission.INTERNET)
+        if(k!=PackageManager.PERMISSION_GRANTED)
+        {
+            ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.INTERNET),8)
+        }
+
 
         val storageCode=7
 
@@ -30,23 +54,10 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("displayText",message)
             startActivity(intent)
         }
-        val p = ContextCompat.checkSelfPermission(this,android.Manifest.permission.READ_EXTERNAL_STORAGE)
-        button2.setOnClickListener{
-
-            if(p!= PackageManager.PERMISSION_GRANTED)
-            {
-                ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE),storageCode)
-            }
 
 
-            else
-            {
 
-                Toast.makeText(this,"Permission already granted",Toast.LENGTH_SHORT).show()
-            }
-        }
-
-        button3.setOnClickListener {
+       /* button3.setOnClickListener {
 
                val display = MusicListRequest().execute(this)
 
@@ -54,7 +65,7 @@ class MainActivity : AppCompatActivity() {
                //text3.text = disp.toString()
 
 
-        }
+        } */
         btnshare.setOnClickListener{
             val message : String = text1.text.toString()
             val intent = Intent()
@@ -65,7 +76,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnview.setOnClickListener{
-            val intent=Intent(this, Main3Activity::class.java)
+            val intent = Intent(this, Main3Activity::class.java)
             startActivity(intent)
         }
 
