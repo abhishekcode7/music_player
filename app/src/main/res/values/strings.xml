@@ -3,4 +3,5 @@
     <string name="string1">Enter text to display in activity 2</string>
     <string name="admob_id">ca-app-pub-1788332764809455~5493699836</string>
     <string name="admob_banner">ca-app-pub-1788332764809455/5332125721</string>
+    <string name="splitify">SPLITIFY</string>
 </resources>

@@ -4,5 +4,13 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="startblue">#09c6df</color>
-    <color name="starttest">#513fac</color>
+    <color name="starttest">#13547a</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="green">#89f7fe</color>
+    <color name="lgreen">#0f3971</color>
+    <color name="lblue">#13547a</color>
+    <color name="spbg1">#91e97d</color>
+    <color name="spbg2">#dade6a</color>
+    <color name="grey">#8b8787</color>
 </resources>

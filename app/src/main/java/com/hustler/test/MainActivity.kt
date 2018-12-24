@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        MobileAds.initialize(this, "ca-app-pub-1788332764809455~5493699836")
+       /* MobileAds.initialize(this, "ca-app-pub-1788332764809455~5493699836")
         val adRequest=AdRequest.Builder().build()
         adView.loadAd(adRequest)
         adView.visibility= View.GONE
@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
                 adView.visibility=View.VISIBLE
                 super.onAdLoaded()
             }
-        }
+        } */
 
 
         val k=ContextCompat.checkSelfPermission(this,android.Manifest.permission.INTERNET)
@@ -46,14 +46,14 @@ class MainActivity : AppCompatActivity() {
 
         val storageCode=7
 
-        button.setOnClickListener{
+        /*button.setOnClickListener{
             Toast.makeText(this," button was clicked",Toast.LENGTH_SHORT).show()
             val message : String = text1.text.toString()
 
             val intent = Intent( this,Main2Activity::class.java)
             intent.putExtra("displayText",message)
             startActivity(intent)
-        }
+        } */
 
 
 
@@ -61,11 +61,11 @@ class MainActivity : AppCompatActivity() {
 
                val display = MusicListRequest().execute(this)
 
-               //val disp = display.songs
-               //text3.text = disp.toString()
+        //val disp = display.songs
+        //text3.text = disp.toString()
 
 
-        } */
+    }
         btnshare.setOnClickListener{
             val message : String = text1.text.toString()
             val intent = Intent()
@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra(Intent.EXTRA_TEXT,message)
             intent.type="text/plain"
             startActivity(Intent.createChooser(intent,"SEND TO :"))
-        }
+        } */
 
         btnview.setOnClickListener{
             val intent = Intent(this, Main3Activity::class.java)
