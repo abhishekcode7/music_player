@@ -41,6 +41,7 @@ class Main3Activity : AppCompatActivity() {
     }
 
     val i =Intent(this,player::class.java)
+    
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
