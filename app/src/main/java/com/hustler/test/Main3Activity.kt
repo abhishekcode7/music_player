@@ -33,16 +33,14 @@ import java.util.*
 import java.util.concurrent.Delayed
 import kotlin.concurrent.timerTask
 
-    fun con(context: Context):Intent{
-        val i=Intent(context,player::class.java)
-        return i
-    }
+
 class Main3Activity : AppCompatActivity() {
 
     companion object {
         val mp by lazy { MediaPlayer() }
     }
 
+    val i =Intent(this,player::class.java)
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -61,7 +59,7 @@ class Main3Activity : AppCompatActivity() {
             when(item.itemId)
             {
               R.id.playing->{
-                    startActivity(con(this))
+                    startActivity(i)
                   return@setOnNavigationItemSelectedListener true
               }
                 else->return@setOnNavigationItemSelectedListener true
@@ -127,10 +125,10 @@ class Main3Activity : AppCompatActivity() {
     }*/
     public fun openplayer( spath:String,stitle :String,sduration:String)
    {
-       con(this).putExtra("spath",spath)
-       con(this).putExtra("stitle",stitle)
-       con(this).putExtra("sduration",sduration)
-       startActivity(con(this))
+       i.putExtra("spath",spath)
+       i.putExtra("stitle",stitle)
+       i.putExtra("sduration",sduration)
+       startActivity(i)
 
    }
 
